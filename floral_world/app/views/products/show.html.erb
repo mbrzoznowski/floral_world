@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+  <tr>
+  <th>Id</th>
+  <th>Nazwa</th>
+  <th>Opis</th>
+  <th>Cena</th>
+  <th>Akcje</th>
+</tr>
+  <% product = @product %>
+    <tr>
+      <td><%= product.id %></td>
+      <td><%= product.name%></td>
+      <td><%= product.description%></td>
+      <td><%= "#{product.price} zł"%></td>
+      <td><%= link_to 'Edytuj', edit_product_path(product) %> 
+      |
+      <%= link_to 'Usuń', product_path(product), method: :delete, data: { confirm: 'Czy chcesz usunąć?' } %></td>
+
+    </tr>
+    </tr>
+  
+</table>
+
+<%= link_to 'Strona główna', root_path %> 
