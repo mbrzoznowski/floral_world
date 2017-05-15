@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[edit show]
+  before_action :set_product, only: %i[edit show destroy update]
 
   def index
     @products = Product.all
@@ -27,15 +27,17 @@ class ProductsController < ApplicationController
   def update
     if @product.update(product_params)
       flash[:notice] = 'Zmodyfikowano produkt'
+      redirect_to products_path
     else
       flash[:error] = 'Nie udało się zapisać'
       render :edit
     end
   end
 
-  def destroy
+  def destory
     @product.destroy
     flash[:notice] = "Usunięto rekord #{@product.id}: #{@product.name}"
+    redirect_to products_path
   end
 
 
