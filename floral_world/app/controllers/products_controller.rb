@@ -5,7 +5,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show; end
+  def show
+    @last_updated = @product.updated_at.strftime("%Y-%m-%d %H:%M")
+  end
+
 
   def new
     @product = Product.new

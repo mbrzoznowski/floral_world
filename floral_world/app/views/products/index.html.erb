@@ -1,14 +1,3 @@
-<style>
-body{
-  margin: 20px;
-}
-.card-img-top{
-  width: 100%;
-}
-</style>
-<%= link_to 'Konfigurator produktu', new_product_path %>
-
-
 <div class="container">
   <div class="jumbotron text-center">
     <h1>Floral World</h1>      
@@ -16,7 +5,7 @@ body{
   </div>
 </div>
 
-<h2 class="text-left"><%= link_to 'Konfigurator produktu', new_product_path %></h2>
+<h2><%= link_to 'Konfigurator produktu', new_product_path %></h2>
 
 <div class="row">
 <% @products.each do |p| %>
@@ -28,7 +17,7 @@ body{
         <p class="card-text"><%= p.description %></p>
         <p class="card-text"><%= p.price %> PLN</p>
         <a href="#" class="btn btn-primary">Dodaj do koszyka</a>
-      </div>   
+      </div>
     </div>
   </div>
 <% end %>

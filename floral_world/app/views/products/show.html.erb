@@ -1,24 +1,19 @@
-<table class="table table-bordered">
-  <tr>
-  <th>Id</th>
-  <th>Nazwa</th>
-  <th>Opis</th>
-  <th>Cena</th>
-  <th>Akcje</th>
-</tr>
-  <% product = @product %>
-    <tr>
-      <td><%= product.id %></td>
-      <td><%= product.name%></td>
-      <td><%= product.description%></td>
-      <td><%= "#{product.price} zł"%></td>
-      <td><%= link_to 'Edytuj', edit_product_path(product) %> 
-      |
-      <%= link_to 'Usuń', product_path(product), method: :delete, data: { confirm: 'Czy chcesz usunąć?' } %></td>
-
-    </tr>
-    </tr>
   
-</table>
-
 <%= link_to 'Strona główna', root_path %> 
+
+
+<% product = @product %>
+<div class="row">
+  <div class="col-sm-6"><p class="text-right"><%= link_to 'Edytuj', edit_product_path(product) %></p></div>
+  <div class="col-sm-6"><%= link_to 'Usuń', product_path(product), method: :delete, data: { confirm: 'Czy chcesz usunąć?' } %></div>
+</div>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%= product.name%></h4>
+    <p class="card-text"><%= product.description%></p>
+    <p class="card-text"><%= "#{product.price} zł"%></p>
+    <p class="card-text"><small class="text-muted">Ostatnia akutalizacja <%=@last_updated%></small></p>
+  </div>
+  <%= image_tag 'roze.jpg', :class => "card-img-bottom", :alt => "Card image cap"%>
+</div>
+
