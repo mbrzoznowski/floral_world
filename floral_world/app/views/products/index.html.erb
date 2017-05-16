@@ -1,12 +1,13 @@
 <div class="container">
   <div class="jumbotron text-center">
-    <h1>Floral World</h1>      
+    <h1 class="title">Floral World</h1>      
     <p>Twoje kwiaty w internecie. Konfiguruj, twórz i zamawiaj to co właśnie chcesz</p>
   </div>
 </div>
-
-<h2><%= link_to 'Konfigurator produktu', new_product_path %></h2>
-
+<div class="conf-box">
+  <h2 class="text-center"><%= link_to 'Konfigurator produktu', new_product_path %></h2>
+</div>
+<br/>
 <div class="row">
 <% @products.each do |p| %>
   <div class="col-sm-3">

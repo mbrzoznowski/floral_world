@@ -1,0 +1,53 @@
+ body{
+  margin: 20px;
+}
+.conf-box{
+  margin: auto;
+    width: 50%;
+    border: 3px solid LightSeaGreen;
+    padding: 10px;
+}
+
+.jumbotron{
+  background-color: LightSeaGreen;
+  color: White;
+}
+.title{
+  color: White;
+}
+
+.card-img-top{
+  width: 100%;
+}
+.card-img-bottom{
+  width: 500px;
+  align-self:  center;
+}
+.btn-primary{
+  background-color: LightSeaGreen ;
+  border-width: 0px;
+
+}
+.btn-primary:hover{
+  background-color: White;
+  border-color: LightSeaGreen;
+  color: LightSeaGreen;
+  border-width: 3px;
+}
+
+h3, h1, h2 {
+  color: LightCoral;
+}
+a {
+  color: LightSeaGreen;
+}
+a:hover{
+  color: #14716c;
+}
+.card {
+  border-width: 2px;
+  border-color: LightSeaGreen;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

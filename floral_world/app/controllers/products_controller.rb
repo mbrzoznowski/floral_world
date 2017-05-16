@@ -7,18 +7,20 @@ class ProductsController < ApplicationController
 
   def show
     @last_updated = @product.updated_at.strftime("%Y-%m-%d %H:%M")
+
   end
 
 
   def new
     @product = Product.new
+    @materials = Material.all
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
       flash.now[:notice] = 'Dodano nowy produkt'
-      redirect_to products_path
+      redirect_to edit_product_path(@product)
     else
       flash[:error] = 'Dodanie produktu nie powiodło się'
       render :new
@@ -37,7 +39,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     @product.destroy
     flash[:notice] = "Usunięto rekord #{@product.id}: #{@product.name}"
     redirect_to products_path
