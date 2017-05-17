@@ -10,7 +10,13 @@
 <div class="card">
   <div class="card-block">
     <h4 class="card-title"><%= product.name%></h4>
-    <p class="card-text"><%= product.description%></p>
+    <p>Skład produktu:</p>
+    <p class="card-text">
+      <% product.orders.each do |order| %>
+      <%= "#{order.material.name} sztuk: " %>
+      <%= order.amount %>
+      <br/>
+      <% end %></p>
     <p class="card-text"><%= "#{product.price} zł"%></p>
     <p class="card-text"><small class="text-muted">Ostatnia akutalizacja <%=@last_updated%></small></p>
   </div>

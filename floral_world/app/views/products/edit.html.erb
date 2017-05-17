@@ -1,10 +1,14 @@
 <%= javascript_include_tag 'edit', 'data-turbolinks-track': 'reload' %>
 <% product = @product %>
+
 <div class="contrainer">
   <div class="row">
     <div class="col">
+
     </div>
+
     <div class="col text-center">
+    <p class="text-right"><%= link_to 'Strona główna', root_path %> </p>
       <h3 class="text-center">Edytuj</h3> 
       <%= form_for(product) do |p| %>
       <%= p.label :name, 'Nazwa' %>
@@ -13,19 +17,27 @@
       <br/>
       <%= p.submit "Zmień nazwę", class: "btn btn-success" %>
       <br/>
-      <%= p.label :description, 'Bukiet składa się z:' %>
+
+      <div class="text-left">
+
+        <% product.orders.each do |order| %>
+        <%= "#{order.material.name} sztuk: " %>
+        <%= order.amount %>
+        <%= link_to 'Usuń', order_path(order), method: :delete, data: { confirm: 'Czy chcesz usunąć?' } %>
+        <br/>
+        <% end %>
+      </div>
       <br/>
-      <%= p.text_area :description, :size => "60x8", :readonly => 'yes' do %>
-        <%= p.description += params[product[material_ids]] %>
+
       <% end %>
-      <% end %>
+
       <br/><br/>
       <div class="duplicate-div">
         <%= form_for(Order.new) do |o| %>
         <%= o.collection_select(:material_id,  Material.all, :id, :name) %> 
         <%= o.label :amount, 'Ilość' %> 
         <%= o.text_field :amount, :placeholder => 'Podaj ilość' %>
-        <%= o.text_field :product_id, :value => Product.find(params[:id]).id, :readonly => 'yes', :size => '2' %>
+        <%= o.text_field :product_id, :value => product.id, :readonly => 'yes', :size => '2' %>
         <%= o.submit "Dodaj", class: "btn btn-success" %>
         <% end %>
       </div>
@@ -33,33 +45,6 @@
             <p>Cena</p>
       <p class="VIP">Wyliczona cena</p>
       
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
     <div class="col">

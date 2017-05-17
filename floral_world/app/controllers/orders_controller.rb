@@ -14,13 +14,15 @@ class OrdersController < ApplicationController
     else
       flash[:error] = 'Dodanie kwiatów nie powiodło się'
       redirect_to edit_product_path(@order.product_id)
-
-      # (Order.where(product_id: (params[:id])))
-      # (Order.where(product_id: (params[:product_id])))
-      # (Product.find(params[:id]))
     end
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    flash[:notice] = "Usunięto #{@order.material.name} sztuk: #{@order.amount}"
+    redirect_to edit_product_path(@order.product_id)
+  end
 
 private
 

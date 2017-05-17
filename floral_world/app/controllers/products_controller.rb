@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[edit show destroy update]
-
   def index
     @products = Product.all
   end
@@ -29,9 +28,7 @@ class ProductsController < ApplicationController
 
   def edit
     @materials = Material.all
-    opis = []
-    # @product.materials.each do |x|
-    #   opis << x.name
+    
   end
 
   def update
