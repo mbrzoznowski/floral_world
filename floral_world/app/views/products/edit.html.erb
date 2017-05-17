@@ -35,19 +35,15 @@
       <div class="duplicate-div">
         <%= form_for(Order.new) do |o| %>
         <%= o.collection_select(:material_id,  Material.all, :id, :name) %> 
-        <%= o.label :amount, 'Ilość' %> 
+
         <%= o.text_field :amount, :placeholder => 'Podaj ilość' %>
-        <%= o.text_field :product_id, :value => product.id, :readonly => 'yes', :size => '2' %>
+        <%= o.text_field :product_id, :value => product.id, :hidden => 'hidden', :size => '2' %>
         <%= o.submit "Dodaj", class: "btn btn-success" %>
         <% end %>
       </div>
       <hr>
             <p>Cena:</p>
-            <% result = 0 %>
-      <% product.orders.each do |order| %>
-        <% result += (order.material.price * order.amount)%>
-      <% end %>
-      <p class="VIP"><%= "#{result} zł" %></p>
+      <p class="VIP"><%= "#{product.generate_price} zł" %></p>
           <p class="text-right"><%= button_to 'ZAPISZ', root_path, :method => 'get', :class => 'btn btn-success' %> </p>
     </div>
     <div class="col">

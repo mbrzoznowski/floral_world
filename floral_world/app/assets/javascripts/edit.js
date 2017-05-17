@@ -1,6 +1,6 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
 
-  $('.duplicate-div').css('color','red');
+//   $('.duplicate-div').css('color','red');
 
-});
+// });

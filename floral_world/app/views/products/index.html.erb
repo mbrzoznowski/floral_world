@@ -11,7 +11,7 @@
         <%= image_tag 'roze.jpg', :class => "card-img-top", :alt => "Card image cap"%>
         <h3 class="card-title"><%= link_to "#{p.name}", product_path(p) %></h3>
         <p class="card-text"><%= p.description %></p>
-        <p class="card-text"><%= p.price %> PLN</p>
+        <p class="card-text"><%= p.generate_price %> PLN</p>
         <a href="#" class="btn btn-primary">Dodaj do koszyka</a>
       </div>
     </div>
@@ -32,7 +32,7 @@
       <td><%= link_to "#{product.id}", product_path(product) %></td>
       <td><%= product.name%></td>
       <td><%= product.description%></td>
-      <td><%= "#{product.price} zł"%></td>
+      <td><%= "#{product.generate_price} zł"%></td>
       <td><%= link_to 'Edytuj', edit_product_path(product) %> 
       |
       <%= link_to 'Usuń', product_path(product), method: :delete, data: { confirm: 'Czy chcesz usunąć?' } %></td>

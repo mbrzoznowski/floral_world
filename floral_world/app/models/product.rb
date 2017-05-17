@@ -22,4 +22,13 @@ class Product < ApplicationRecord
       result
   end
 
+  def generate_price
+    result = 0
+    result = 0
+      orders.each do |order|
+        result += (order.material.price * order.amount)
+      end 
+    result
+  end
+
 end

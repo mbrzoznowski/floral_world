@@ -27,6 +27,9 @@
 .card-img-top{
   width: 100%;
 }
+.text-muted{
+  color: LightSeaGreen;
+}
 .card-img-bottom{
   width: 500px;
   align-self:  center;
@@ -35,6 +38,15 @@ hr {
   border-width: 3px;
   border-color: LightSeaGreen;
 }
+.footy{
+  color: LightSeaGreen;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 3px;
+  text-align: center;
+  border-width: 2px;
+}
+
 
 .btn-primary, .btn-success{
   background-color: LightSeaGreen ;

@@ -17,7 +17,7 @@
       <%= order.amount %>
       <br/>
       <% end %></p>
-    <p class="card-text"><%= "#{product.price} zł"%></p>
+    <p class="card-text"><%= "#{product.generate_price} zł"%></p>
     <p class="card-text"><small class="text-muted">Ostatnia akutalizacja <%=@last_updated%></small></p>
   </div>
   <%= image_tag 'roze.jpg', :class => "card-img-bottom", :alt => "Card image cap"%>
