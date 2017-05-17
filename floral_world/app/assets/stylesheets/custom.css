@@ -1,11 +1,19 @@
  body{
   margin: 20px;
 }
+
+
+.VIP{
+  color: LightSeaGreen;
+  font-size: 120%;
+  font-weight: bold;
+}
 .conf-box{
   margin: auto;
     width: 50%;
     border: 3px solid LightSeaGreen;
     padding: 10px;
+    border-radius: 4px;
 }
 
 .jumbotron{
@@ -23,12 +31,17 @@
   width: 500px;
   align-self:  center;
 }
-.btn-primary{
-  background-color: LightSeaGreen ;
-  border-width: 0px;
-
+hr {
+  border-width: 3px;
+  border-color: LightSeaGreen;
 }
-.btn-primary:hover{
+
+.btn-primary, .btn-success{
+  background-color: LightSeaGreen ;
+  border-width: 3px;
+  border-color: White;
+}
+.btn-primary:hover, .btn-success:hover{
   background-color: White;
   border-color: LightSeaGreen;
   color: LightSeaGreen;
@@ -36,7 +49,7 @@
 }
 
 h3, h1, h2 {
-  color: LightCoral;
+  color: LightSeaGreen;
 }
 a {
   color: LightSeaGreen;

@@ -13,35 +13,40 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @materials = Material.all
+    
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash.now[:notice] = 'Dodano nowy produkt'
+      flash[:notice] = 'Dodano nowy produkt'
       redirect_to edit_product_path(@product)
     else
-      flash[:error] = 'Dodanie produktu nie powiodło się'
+      flash.now[:error] = 'Dodanie produktu nie powiodło się'
       render :new
     end
   end
 
-  def edit; end
+  def edit
+    @materials = Material.all
+    opis = []
+    # @product.materials.each do |x|
+    #   opis << x.name
+  end
 
   def update
     if @product.update(product_params)
       flash[:notice] = 'Zmodyfikowano produkt'
-      redirect_to products_path
+       redirect_to edit_product_path(@product)
     else
-      flash[:error] = 'Nie udało się zapisać'
+      flash.now[:error] = 'Nie udało się zapisać'
       render :edit
     end
   end
 
   def destroy
     @product.destroy
-    flash[:notice] = "Usunięto rekord #{@product.id}: #{@product.name}"
+    flash[:notice] = "Usunięto rekord '#{@product.name}'"
     redirect_to products_path
   end
 
@@ -55,7 +60,7 @@ protected
 private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price, :material_ids)
   end
 
 end

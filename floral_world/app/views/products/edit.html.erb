@@ -1,4 +1,68 @@
-<%= flash[:error] if flash[:error] %>
-<h3>Edytuj</h3>
-<%= render partial: 'form', locals: {product: @product} %>
+<%= javascript_include_tag 'edit', 'data-turbolinks-track': 'reload' %>
+<% product = @product %>
+<div class="contrainer">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col text-center">
+      <h3 class="text-center">Edytuj</h3> 
+      <%= form_for(product) do |p| %>
+      <%= p.label :name, 'Nazwa' %>
+      <br/>
+      <%= p.text_field :name, :placeholder => 'Podaj nazwę produktu', :size => "61" %>
+      <br/>
+      <%= p.submit "Zmień nazwę", class: "btn btn-success" %>
+      <br/>
+      <%= p.label :description, 'Bukiet składa się z:' %>
+      <br/>
+      <%= p.text_area :description, :size => "60x8", :readonly => 'yes' do %>
+        <%= p.description += params[product[material_ids]] %>
+      <% end %>
+      <% end %>
+      <br/><br/>
+      <div class="duplicate-div">
+        <%= form_for(Order.new) do |o| %>
+        <%= o.collection_select(:material_id,  Material.all, :id, :name) %> 
+        <%= o.label :amount, 'Ilość' %> 
+        <%= o.text_field :amount, :placeholder => 'Podaj ilość' %>
+        <%= o.text_field :product_id, :value => Product.find(params[:id]).id, :readonly => 'yes', :size => '2' %>
+        <%= o.submit "Dodaj", class: "btn btn-success" %>
+        <% end %>
+      </div>
+      <hr>
+            <p>Cena</p>
+      <p class="VIP">Wyliczona cena</p>
+      
 
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</contrainer>

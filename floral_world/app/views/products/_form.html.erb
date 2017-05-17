@@ -1,16 +1,15 @@
  <%= form_for(product) do |f| %>
    <%= f.label :name, 'Nazwa' %>
    <br/>
-   <%= f.text_field :name, :placeholder => 'Podaj nazwę produktu' %>
+   <%= f.text_field :name, :placeholder => 'Podaj nazwę produktu', :size => "61"  %>
    <br/>
-   <%= f.label :description, 'Opis' %>
+   <%= f.label :description, 'Opis'%>
    <br/>
    <%= f.text_area :description, :placeholder => 'Tutaj wpisz opis Twojego produktu', :size => "60x12" %>
    <br/>
    <%= f.label :price, 'Cena' %>
    <br/>
-   <%= f.text_field :price, :placeholder => 'Tutaj wpisz cenę' %><%= ' zł'%>
-   <br/>
-
+   <%= f.text_field :price, :placeholder => 'Tutaj wpisz cenę', :size => "61" %><%= ' zł'%>
+   <hr>
    <%= f.submit "Zapisz" %>
 <% end %>
