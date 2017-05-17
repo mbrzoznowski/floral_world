@@ -17,9 +17,8 @@
       <br/>
       <%= p.submit "Zmień nazwę", class: "btn btn-success" %>
       <br/>
-
-      <div class="text-left">
-
+      <h5>Produkt składa się z:</h5>
+      <div class="text-center">
         <% product.orders.each do |order| %>
         <%= "#{order.material.name} sztuk: " %>
         <%= order.amount %>
@@ -31,7 +30,8 @@
 
       <% end %>
 
-      <br/><br/>
+      <br/>
+      <h5>Dodaj kwiaty do produktu</h5>
       <div class="duplicate-div">
         <%= form_for(Order.new) do |o| %>
         <%= o.collection_select(:material_id,  Material.all, :id, :name) %> 
@@ -42,10 +42,13 @@
         <% end %>
       </div>
       <hr>
-            <p>Cena</p>
-      <p class="VIP">Wyliczona cena</p>
-      
-
+            <p>Cena:</p>
+            <% result = 0 %>
+      <% product.orders.each do |order| %>
+        <% result += (order.material.price * order.amount)%>
+      <% end %>
+      <p class="VIP"><%= "#{result} zł" %></p>
+          <p class="text-right"><%= button_to 'ZAPISZ', root_path, :method => 'get', :class => 'btn btn-success' %> </p>
     </div>
     <div class="col">
     </div>
