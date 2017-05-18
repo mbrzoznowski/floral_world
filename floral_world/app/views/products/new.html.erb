@@ -1,15 +1,29 @@
+<div class="contrainer">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col text-center">
 <h3>Dodaj nowy produkt</h3>
 
+<%= form_for(@product) do |p| %>
+<%= p.label :name, 'Nazwa' %>
+<br/>
+<%= p.text_field :name, :placeholder => 'Podaj nazwę produktu' %>
+<%= p.text_field :user_id, :value => current_user.id, :hidden => 'hidden', :size => '2', :readonly => 'yes' %>
+<br/>
+<div class="is-it-public">
+<%= p.check_box(:public, {:value => true, checked: false, class: "check-king"}) %>
+<%= p.label :public, 'Zaznacz, jeśli chcesz udostępnić produkt innym użytkownikom' , class: "VIP" %>
+</div>
+<hr>
 
-
- <%= form_for(@product) do |p| %>
-   <%= p.label :name, 'Nazwa' %>
-   <br/>
-   <%= p.text_field :name, :placeholder => 'Podaj nazwę produktu' %>
-   <hr>
-   <%= p.submit "Przejdź do następnego kroku", class: "btn btn-success" %>
-   <br/><br/>
-   <%= link_to 'Wróć do strony głównej', root_path %> 
-   <br/><br/><br/><br/>
+<%= p.submit "Przejdź do następnego kroku", class: "btn btn-success" %>
+<br/><br/>
+<%= link_to 'Wróć do strony głównej', root_path %> 
+<br/><br/><br/><br/>
 <% end %>
-
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

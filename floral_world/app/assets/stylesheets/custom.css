@@ -1,6 +1,23 @@
  body{
   margin: 20px;
 }
+.user-products{
+  margin: 10px;
+  background-color: LightCoral;
+  color: LightCoral;
+  border-color: LightSeaGreen;
+  text-align: center;
+}
+
+
+.is-it-public{
+  border: 3px solid LightSeaGreen;
+  margin: 10px;
+  border-radius: 4px;
+}
+.check-king{
+  background: LightSeaGreen;
+}
 
 .VIP{
   color: LightSeaGreen;
@@ -75,4 +92,3 @@ a:hover{
   margin-top: 10px;
   margin-bottom: 10px;
 }
-

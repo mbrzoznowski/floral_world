@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518131659) do
+ActiveRecord::Schema.define(version: 20170518152135) do
 
   create_table "materials", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 20170518131659) do
     t.string "product_image_content_type"
     t.integer "product_image_file_size"
     t.datetime "product_image_updated_at"
+    t.boolean "public", default: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

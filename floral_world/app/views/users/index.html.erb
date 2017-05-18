@@ -1,16 +1,7 @@
-
-<div class="conf-box">
-  <h2 class="text-center"><%= link_to 'Konfigurator produktu', new_product_path %></h2>
-</div>
-<% if user_signed_in? %>
-  <div class="user-products">
-    <%= link_to 'Twoje produkty', users_path, class: 'navbar-link' %>
-  </div>
-  <%= button_to 'Twoje produkty', users_path, class: 'btn btn-primary', method: :get  %>
-<% end %>
+<h2>Twoje produkty</h2>
 <br/>
 <div class="row">
-<% @products.each do |p| %>
+<% @products_user.each do |p| %>
   <div class="col-sm-3">
     <div class="card">
       <div class="card-block">
@@ -25,4 +16,3 @@
   </div>
 <% end %>
 </div>
-

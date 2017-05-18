@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[edit show destroy update]
   def index
-    @products = Product.all
+    @products = Product.where('public = ?', true)
   end
 
   def show
@@ -57,7 +57,7 @@ protected
 private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :material_ids, :product_image)
+    params.require(:product).permit(:name, :description, :price, :material_ids, :product_image, :user_id, :public)
   end
 
 end
