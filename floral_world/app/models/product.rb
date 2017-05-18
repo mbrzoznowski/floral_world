@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_attached_file :product_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ":style/missing.png"
   
   validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
-  validates :name, uniqueness: true
+  validates :name, presence: true
 
   def generate_description
 
