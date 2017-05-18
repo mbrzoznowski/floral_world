@@ -1,7 +1,9 @@
 class Product < ApplicationRecord
   has_many :orders
   has_many :materials, through: :orders
-
+  has_attached_file :product_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ":style/missing.png"
+  
+  validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
   validates :name, uniqueness: true
 
   def generate_description

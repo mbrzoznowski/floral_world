@@ -11,12 +11,20 @@
     <p class="text-right"><%= link_to 'Strona główna', root_path %> </p>
       <h3 class="text-center">Edytuj</h3> 
       <%= form_for(product) do |p| %>
+      <%= image_tag product.product_image.url(:medium) %>
+      <br/>
       <%= p.label :name, 'Nazwa' %>
       <br/>
       <%= p.text_field :name, :placeholder => 'Podaj nazwę produktu', :size => "61" %>
       <br/>
       <%= p.submit "Zmień nazwę", class: "btn btn-success" %>
       <br/>
+      <%= p.file_field :product_image, class: "btn btn-success"  %>
+      <br/>
+      <%= p.submit "Zapisz obraz", class: "btn btn-success" %>
+      <br/>
+
+
       <h5>Produkt składa się z:</h5>
       <div class="text-center">
         <% product.orders.each do |order| %>
