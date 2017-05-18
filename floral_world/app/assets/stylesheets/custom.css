@@ -2,11 +2,11 @@
   margin: 20px;
 }
 
-
 .VIP{
   color: LightSeaGreen;
   font-size: 120%;
   font-weight: bold;
+  font-style: normal;
 }
 .conf-box{
   margin: auto;

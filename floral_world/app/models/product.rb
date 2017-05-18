@@ -6,10 +6,6 @@ class Product < ApplicationRecord
   validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
   validates :name, presence: true
 
-  def generate_description
-
-  end
-
   def generate_price
     result = 0
     result = 0
@@ -20,15 +16,15 @@ class Product < ApplicationRecord
   end
 
   def generate_simple_desc
-    opis = []
+    description = []
     result = ""
       orders.each do |order|
-        opis_order = []
-        opis_order << "#{order.material.name} sztuk: "
-        opis_order << "#{order.amount}; "
-        opis << opis_order
+        description_order = []
+        description_order << "#{order.material.name} sztuk: "
+        description_order << "#{order.amount}; "
+        description << description_order
     end
-      opis.each do |parse|
+      description.each do |parse|
         result << parse.join(' ')
       end
       result[0..40]

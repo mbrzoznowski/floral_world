@@ -7,17 +7,26 @@
 </div>
 <div class="card">
   <div class="card-block">
+  <div class="contrainer">
+  <div class="row">
+    <div class="col">
     <h4 class="card-title"><%= product.name%></h4>
     <p>Skład produktu:</p>
     <p class="card-text">
       <% product.orders.each do |order| %>
-      <%= "#{order.material.name} sztuk: " %>
-      <%= order.amount %>
+      <i class="VIP"><%= "#{order.material.name} sztuk: " %>
+      <%= order.amount %></i>
       <br/>
       <% end %></p>
-    <p class="card-text"><%= "#{product.generate_price} zł"%></p>
+    <h5>Cena:</h5>
+    <p class="card-text VIP"><%= "#{product.generate_price} zł"%></p>
     <p class="card-text"><small class="text-muted">Ostatnia akutalizacja <%=@last_updated%></small></p>
+    </div>
+    <div class="col">
   </div>
   <%= image_tag product.product_image.url(:original), :class => "card-img-bottom", :alt => "Card image cap" %>
+  </div>
+  </div>
+  </div>
 </div>
 
