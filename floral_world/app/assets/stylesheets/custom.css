@@ -1,12 +1,8 @@
  body{
   margin: 20px;
 }
-.user-products{
-  margin: 10px;
-  background-color: LightCoral;
-  color: LightCoral;
-  border-color: LightSeaGreen;
-  text-align: center;
+.index-btns{
+  display: inline;
 }
 
 
@@ -77,9 +73,10 @@ hr {
   border-width: 3px;
 }
 
-h3, h1, h2 {
+h3, h1, h2, h3, h4, h5, h6 {
   color: LightSeaGreen;
 }
+
 a {
   color: LightSeaGreen;
 }

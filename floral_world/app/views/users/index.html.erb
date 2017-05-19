@@ -1,3 +1,10 @@
+<div class="btn-group">
+      <%= button_to 'Twoje produkty', users_path, class: 'btn btn-primary', method: :get  %>
+      <%= button_to 'Produkty publiczne', root_path, class: 'btn btn-primary', method: :get  %>
+</div>
+<div class="conf-box">
+  <h2 class="text-center"><%= link_to 'Konfigurator produktu', new_product_path %></h2>
+</div>
 <h2>Twoje produkty</h2>
 <br/>
 <div class="row">

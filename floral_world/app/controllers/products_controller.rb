@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[edit show destroy update]
+  before_action :authenticate_user!, except: %i[index show]
   def index
     @products = Product.where('public = ?', true)
   end
