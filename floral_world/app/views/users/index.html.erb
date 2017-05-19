@@ -1,6 +1,6 @@
 <div class="btn-group">
-      <%= button_to 'Twoje produkty', users_path, class: 'btn btn-primary', method: :get  %>
-      <%= button_to 'Produkty publiczne', root_path, class: 'btn btn-primary', method: :get  %>
+  <%= button_to 'Twoje produkty', users_path, class: 'btn btn-primary', method: :get  %>
+  <%= button_to 'Produkty publiczne', root_path, class: 'btn btn-primary', method: :get  %>
 </div>
 <div class="conf-box">
   <h2 class="text-center"><%= link_to 'Konfigurator produktu', new_product_path %></h2>
@@ -8,7 +8,7 @@
 <h2>Twoje produkty</h2>
 <br/>
 <div class="row">
-<% @products_user.each do |p| %>
+  <% @products_user.each do |p| %>
   <div class="col-sm-3">
     <div class="card">
       <div class="card-block">
@@ -17,9 +17,12 @@
         <p> <%= p.generate_simple_desc %>... <%= link_to "Więcej", product_path(p)%> </p>
         <br/>
         <p class="card-text"><%= p.generate_price %> PLN</p>
+        <% if p.public == true %>
+        <h6>Produkt publiczny</h6>
+        <% end %>
         <%= button_to 'Zobacz produkt', product_path(p), class: 'btn btn-primary', method: :get  %>
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
 </div>

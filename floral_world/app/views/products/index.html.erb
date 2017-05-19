@@ -14,35 +14,27 @@
 <br/>
 <div class="row">
   <% @products.each do |p| %>
-  <% if p.user_id != nil %>
   <div class="col-sm-3">
     <div class="card">
       <div class="card-block">
-        <%= image_tag p.product_image.url(:medium), :class => "card-img-top", :alt => "Card image cap"%>
+        <%= link_to image_tag(p.product_image.url(:medium)), product_path(p), :class => "card-img-top", :alt => "Card image cap" %>
         <h3 class="card-title"><%= link_to "#{p.name}", product_path(p) %></h3>
         <p> <%= p.generate_simple_desc %>... <%= link_to "Więcej", product_path(p)%> </p>
         <br/>
         <p class="card-text"><%= p.generate_price %> PLN</p>
-        <h6>Autor: <%= p.user.email %> </h6>
-        <%= button_to 'Zobacz produkt', product_path(p), class: 'btn btn-primary', method: :get  %>
-      </div>
-    </div>
-  </div>
-  <% else %>
-  <div class="col-sm-3">
-    <div class="card">
-      <div class="card-block">
-        <%= image_tag p.product_image.url(:medium), :class => "card-img-top", :alt => "Card image cap"%>
-        <h2 class="card-title"><%= link_to "#{p.name}", product_path(p) %></h2>
-        <p> <%= p.generate_simple_desc %>... <%= link_to "Więcej", product_path(p)%> </p>
-        <br/>
-        <p class="card-text"><%= p.generate_price %> PLN</p>
+        <% if p.user_id != nil %>
+        <h6>Autor: <%= p.user.nick %> </h6>
+        <% else %>
         <h6>Produkt publiczny</h6>
+        
         <%= button_to 'Zobacz produkt', product_path(p), class: 'btn btn-primary', method: :get  %>
+        
+        <%end%>
       </div>
     </div>
   </div>
-  <%end%>
+  
+  
   <% end %>
 </div>
 

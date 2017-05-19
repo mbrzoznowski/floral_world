@@ -20,6 +20,25 @@
     <div>Oczekiwanie na powierdzenie dla: <%= resource.unconfirmed_email %></div>
   <% end %>
 <hr>
+  <div class="field">
+    <%= f.label :name, 'Imię' %><br />
+    <%= f.text_field :name%>
+  </div>
+<hr>
+    <div class="field">
+    <%= f.label :surname, 'Nazwisko' %><br />
+    <%= f.text_field :surname%>
+  </div>
+<hr>
+    <div class="field">
+    <%= f.label :nick, 'Nick' %><br />
+    <%= f.text_field :nick%>
+  </div>
+
+
+
+
+<hr>
     <%= f.label :password, "Hasło" %> <br/><i>(zostaw puste, jeśli nie chcesz zmieniać)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>

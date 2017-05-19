@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params)
+    if @product.update!(product_params)
       flash[:notice] = 'Zmodyfikowano produkt'
        redirect_to edit_product_path(@product)
     else
@@ -58,7 +58,8 @@ protected
 private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :material_ids, :product_image, :user_id, :public)
+    params.require(:product).permit(:name, :description, :price, :material_ids, :product_image, :public, :product_image_file_name,
+                                    :product_image_content_type, :product_image_file_size, :product_image_updated_at)
   end
 
 end

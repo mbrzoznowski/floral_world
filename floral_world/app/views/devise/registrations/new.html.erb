@@ -15,6 +15,21 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+    <div class="field">
+    <%= f.label :name, 'Imię' %><br />
+    <%= f.text_field :name%>
+  </div>
+
+    <div class="field">
+    <%= f.label :surname, 'Nazwisko' %><br />
+    <%= f.text_field :surname%>
+  </div>
+
+    <div class="field">
+    <%= f.label :nick, 'Nick' %><br />
+    <%= f.text_field :nick%>
+  </div>
+
   <div class="field">
     <%= f.label :password, 'Hasło' %>
     <% if @minimum_password_length %>
