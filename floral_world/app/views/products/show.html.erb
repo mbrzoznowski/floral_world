@@ -20,6 +20,11 @@
       <% end %></p>
     <h5>Cena:</h5>
     <p class="card-text VIP"><%= "#{product.generate_price} zł"%></p>
+    <% if product.user != nil %>
+    <p> <%="Autor produktu: #{product.user.name} #{product.user.surname}"%> </p>
+    <% else %>
+    <p>Produkt publiczny</p>
+    <% end %>
     <p class="card-text"><small class="text-muted">Ostatnia akutalizacja <%=@last_updated%></small></p>
     </div>
     <div class="col">

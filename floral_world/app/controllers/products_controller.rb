@@ -59,7 +59,7 @@ private
 
   def product_params
     params.require(:product).permit(:name, :description, :price, :material_ids, :product_image, :public, :product_image_file_name,
-                                    :product_image_content_type, :product_image_file_size, :product_image_updated_at)
+                                    :product_image_content_type, :product_image_file_size, :product_image_updated_at, :user_id)
   end
 
 end

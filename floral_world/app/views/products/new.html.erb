@@ -9,7 +9,7 @@
 <%= p.label :name, 'Nazwa' %>
 <br/>
 <%= p.text_field :name, :placeholder => 'Podaj nazwę produktu' %>
-<%= p.text_field :user_id, :value => current_user.id, :hidden => 'hidden', :size => '2', :readonly => 'yes' %>
+<%= p.text_field :user_id, :value => current_user.id, :hidden => 'hidden'%>
 <br/>
 <div class="is-it-public">
 <%= p.check_box(:public, {:value => true, checked: false, class: "check-king"}) %>

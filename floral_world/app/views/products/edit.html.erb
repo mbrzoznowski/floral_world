@@ -43,7 +43,6 @@
       <div class="duplicate-div">
         <%= form_for(Order.new) do |o| %>
         <%= o.collection_select(:material_id,  Material.all, :id, :name) %> 
-
         <%= o.text_field :amount, :placeholder => 'Podaj ilość' %>
         <%= o.text_field :product_id, :value => product.id, :hidden => 'hidden', :size => '2', :readonly => 'yes' %>
         <%= o.submit "Dodaj", class: "btn btn-success" %>
