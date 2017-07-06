@@ -9,9 +9,17 @@ volumes:
 
 services:
   app:
-    extends:
-      file: 'app.yml'
-      service: app
+    build: .
+    command: rails s -p 80 -b '0.0.0.0' -P /tmp/server.pid
+    ports:
+      - 80
+    labels:
+      - CONTEXT_ROOT=/
+      - VIRTUAL_ROOT=/app_public
+    volumes:
+      - "./:/usr/src/app"
+      - "./.git/modules/app:/usr/src/.git/modules/app"
+      - "app_gems:/usr/local/bundle"
     ports:
       - "3000:80"
     env_file:
