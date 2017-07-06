@@ -1,9 +1,24 @@
-version: '2'
+version: "2"
+
+
+volumes:
+  nginx: {}
+  app_db: {}
+  app_gems: {}
+
+
 services:
-  web:
-    build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    volumes:
-      - .:/myapp
+  app:
+    extends:
+      file: 'app.yml'
+      service: app
     ports:
-      - "3000:3000"
+      - "3000:80"
+    env_file:
+      - '.env'
+    stdin_open: true
+    tty: true
+  app_db:
+    extends:
+      file: 'app.yml'
+      service: db

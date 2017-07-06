@@ -19,9 +19,21 @@
 
 <%= p.submit "Przejdź do następnego kroku", class: "btn btn-success" %>
 <br/><br/>
-<%= link_to 'Wróć do strony głównej', root_path %> 
+<%= link_to 'Wróć do strony głównej', root_path %>
 <br/><br/><br/><br/>
 <% end %>
+
+
+
+<%= simple_form_for(@product, html: { class: 'simple-block' }) do |f| %>
+  <%= f.input :name, label: 'Nazwa' %>
+  <%= f.input :user_id, as: 'hidden', input_html: { value: current_user.id, hidden: 'hidden' } %>
+  <%= f.input :public, as: :boolean, label: 'Zaznacz, jeśli chcesz udostępnić produkt innym użytkownikom.' , html: { class: 'VIP'} %>
+<hr>
+  <%= f.submit 'Przejdź do następnego kroku'%>
+<% end %>
+
+
     </div>
     <div class="col">
     </div>

@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  db:
+    image: mdillon/postgis:9.6
+    volumes:
+      - "app_db:/var/lib/postgresql/data"
+  app:
+    build: .
+    command: rails s -p 80 -b '0.0.0.0' -P /tmp/server.pid
+    ports:
+      - 80
+    labels:
+      - CONTEXT_ROOT=/
+      - VIRTUAL_ROOT=/app_public
+    volumes:
+      - "./:/usr/src/app"
+      - "./.git/modules/app:/usr/src/.git/modules/app"
+      - "app_gems:/usr/local/bundle"

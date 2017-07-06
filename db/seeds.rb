@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# puts 'Seeds start'
+#
+# 15.times do
+#   Material.create(
+#   name: Faker::Pokemon.name
+#   price: between(0.5, 13.12)
+#   )
+#
+# 20.times do
+#   Product.create(
+#
+# end
